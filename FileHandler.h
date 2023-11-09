@@ -12,13 +12,14 @@ class FileHandler
 {
 public:
     FileHandler(eFileType fileType);
+    ~FileHandler();
     bool SaveApiKey(QString&  key);
     QString LoadApiKey();
 
 
 
 private:
-    bool OpenFile(QString& filePatch, QIODevice typeOfOpenFile);
+    bool OpenFile(QString& filePatch, QIODevice::OpenMode typeOfOpenFileFlags);
     bool CloseFile();
     bool WriteToFile(QString& lineToWrite);
     QString ReadFromFile();
