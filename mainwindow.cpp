@@ -22,5 +22,10 @@ void MainWindow::on_pushButton_clicked()
     QString fileContent = "Content of file";
     FileHandler fileHandler(eFileType::ini,filePatch, fileName);
     fileHandler.SaveStringAsFile(fileContent);
+    QString fileContent2 =fileHandler.LoadFileAsString();
+    if(fileContent==fileContent2)
+    {
+        qDebug()<<fileContent;
+    }
 }
 

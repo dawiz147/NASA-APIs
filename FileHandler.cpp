@@ -34,6 +34,18 @@ bool FileHandler::SaveStringAsFile(QString &fileContent)
     return successfullySaveFile;
 }
 
+QString FileHandler::LoadFileAsString()
+{
+    QString fileContent;
+
+    if(OpenFile(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        fileContent=ReadFromFile();
+        CloseFile();
+    }
+    return  fileContent;
+}
+
 
 bool FileHandler::OpenFile( QIODevice::OpenMode typeOfOpenFileFlags)
 {
