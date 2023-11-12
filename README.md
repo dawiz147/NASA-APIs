@@ -13,6 +13,11 @@ Before running this application, you need to obtain an API key from NASA. You ca
 - Displays the fetched image in a graphical user interface.
 - Displays JSON response from the API in a text box.
 
-## Getting Started
+## ToDo List:
+- :white_check_mark: File handler to ini file
+- :x: ini file parser
+- :x: load and save api key in .ini file
+- :x: connect to API 
+
 
 
