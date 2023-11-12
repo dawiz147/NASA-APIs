@@ -11,18 +11,19 @@ enum class eFileType {
 class FileHandler
 {
 public:
-    FileHandler(eFileType fileType);
+    FileHandler(eFileType fileType, const QString& filePatch, const QString& fileName);
     ~FileHandler();
-    bool SaveApiKey(QString&  key);
-    QString LoadApiKey();
+    bool SaveStringAsFile(QString&  fileContent);
+    QString LoadFileAsString();
 
 
 
 private:
-    bool OpenFile(QString& filePatch, QIODevice::OpenMode typeOfOpenFileFlags);
+    bool OpenFile(QIODevice::OpenMode typeOfOpenFileFlags);
     bool CloseFile();
-    bool WriteToFile(QString& lineToWrite);
+    void WriteToFile(QString& lineToWrite);
     QString ReadFromFile();
+    bool PrepareFilePatch(const QString& filePatch, const QString& fileName);
 
 
 
@@ -30,8 +31,8 @@ private:
 
 private:
     eFileType m_FileType;
-    QFile m_File;
-
+    QFile  m_File;
+    QString m_FilePatch;
 
 
 };
